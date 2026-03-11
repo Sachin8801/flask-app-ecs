@@ -24,4 +24,4 @@ jobs:
 
       - name: Build App 
         uses:|
-          echo: "App Build complete"
+        echo: "App Build complete"
