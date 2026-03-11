@@ -23,4 +23,4 @@ jobs:
 
 
       - name: Build App 
-        echo: "App build complete"
+        run: echo "App build complete"
