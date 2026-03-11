@@ -1,0 +1,27 @@
+name: CI_dockerfile
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+
+      - name: Setup Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      
+
+      - name: Install dependencies
+        uses: |
+          pip install -r requirement.txt
+
+
+      - name: Build App 
+        uses:|
+          echo: "App Build complete"
