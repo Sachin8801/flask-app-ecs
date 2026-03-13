@@ -5,8 +5,7 @@ name: Greet_Hello
 # Condition for running the Workflow 
 
 on: 
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 
 # Defining Jobs for the Workflow 
