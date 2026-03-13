@@ -25,23 +25,19 @@ jobs:
 
   
   build:
-    code:
     runs-on: ubuntu-latest
     steps: 
       - name: Creating the container using docker
         run: echo "Container created"
   
-  test:
-    code:
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Will be testing all code and containers 
-        run: echo "Tating the containers and code"
+    test:
+      runs-on: ubuntu-latest
+      steps: 
+        - name: Will be testing all code and containers 
+          run: echo "Tating the containers and code"
 
-  deploy:
-    code:
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Deploying the application 
-        run: echo "application deployes to server"
-        
+    deploy:
+      runs-on: ubuntu-latest
+      steps: 
+        - name: Deploying the application 
+          run: echo "application deployes to server"
