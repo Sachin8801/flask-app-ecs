@@ -1,0 +1,11 @@
+# Version for Docker compose file 
+version: "3.9"
+
+# Services for the application 
+
+services: 
+  flask-app:
+    container_name: flast-app
+    build: .
+    ports: 
+      - 80:80 
