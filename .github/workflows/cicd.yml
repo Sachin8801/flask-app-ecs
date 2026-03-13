@@ -1,0 +1,47 @@
+name: cicd
+
+on:
+  workflow_dispatch:
+    inputs:
+      environments:
+        description: Defining the environments like beanhes and other requirments 
+        default: 'main'
+        required: true
+        type: choice
+        options: 
+          - dev
+          - main
+          - prod
+
+jobs:
+
+  # The default Jobs as per the average code required. 
+
+  code:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout Code or code clone
+        run: echo "Cloning the code fron Git-hub"
+
+  
+  build:
+    code:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Creating the container using docker
+        run: echo "Container created"
+  
+  test:
+    code:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Will be testing all code and containers 
+        run: echo "Tating the containers and code"
+
+  deploy:
+    code:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Deploying the application 
+        run: echo "application deployes to server"
+        
