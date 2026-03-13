@@ -3,6 +3,10 @@ name: portfolio-deploy
 on:
   workflow_dispatch:
 
+permissions:
+    pages: write      
+    id-token: write   
+    contents: read
 
 jobs:
 
