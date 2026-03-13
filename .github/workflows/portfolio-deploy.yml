@@ -1,0 +1,35 @@
+name: portfolio-deploy
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{steps.deployement.output.pages_url}}
+    
+    steps:
+      # This file is for prebuilt actions in Github. (Check git hub internet doumentation for more information)
+      # We will checkout the code (Like git clone)
+      name: Checkout Code
+      uses: actions/checkout@v4
+
+      # Setting up the page also a predefined action
+      name: Setup page
+      uses: actions/configure-pages@v4
+
+      # Setting up the code for page. (Like running app.py)
+      name: Upload static page
+      uses: actions/upload-pages-artifact@v4
+      with:
+        path: "."
+      
+      # Make the page Live 
+      name: Doploy to Git hub pages 
+      id: deployment
+      uses: actions/deploy-pages@v4
