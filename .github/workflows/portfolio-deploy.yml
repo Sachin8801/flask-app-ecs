@@ -15,7 +15,7 @@ jobs:
 
     environment:
       name: github-pages
-      url: ${{steps.deployement.output.pages_url}}
+      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
       # This file is for prebuilt actions in Github. (Check git hub internet doumentation for more information)
