@@ -1,0 +1,23 @@
+name: Deploy app
+
+on:
+  workflow_dispatch:
+    workflows: ["Docker build and push"]
+    types: [completed]
+    branches:
+      - main
+
+
+
+jobs:
+  runs-on: self-hosted
+
+  steps:
+    - name: Code checkout 
+      uses: uses: actions/checkout@v4
+
+
+
+      
+    - name: Docker compose file run
+      run: docker compose down && docker compose up -d --build --force-recreate --pull always
