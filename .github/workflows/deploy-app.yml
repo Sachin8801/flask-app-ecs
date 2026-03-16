@@ -15,11 +15,11 @@ jobs:
         DOCKERHUB_USER: ${{ vars.DOCKERHUB_USER }}
         DOCKER_TAG: ${{ github.event.workflow_run.head_sha }}
         
-  runs-on: self-hosted
+      runs-on: self-hosted
   
-  steps:
-    - name: Code checkout
-      uses: actions/checkout@v4
+      steps:
+        - name: Code checkout
+          uses: actions/checkout@v4
 
-    - name: Docker-compose file run
-      run: docker compose down && docker compose up -d --build --force-recreate --pull always 
+        - name: Docker-compose file run
+          run: docker compose down && docker compose up -d --build --force-recreate --pull always 
