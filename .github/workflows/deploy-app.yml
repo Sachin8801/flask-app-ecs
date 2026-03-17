@@ -2,11 +2,7 @@ name: Deploy-app
 
 on:
   workflow_call:
-    workflows: ["Docker build and push"]
-    type: [completed]
-    branches: [main]
-
-
+  
 
 jobs:
   Deploy:
