@@ -7,44 +7,44 @@ jobs:
     # These are Quality Scans with in the integration of the code
 
 
-  - name: Code-Quality
+  Code-Quality:
     uses: ./.github/workflows/code-quality.yml
 
 
 
-  - name: Secrets-scan
+  Secrets-scan:
     uses: ./.github/workflows/secrets-scan.yml
     secrets: inherit
 
 
-  - name: Dependency-scan
+  Dependency-scan:
     uses: ./.github/workflows/dependency-scan.yml
 
 
-  - name: Docker-scan
+  Docker-scan:
     uses: ./.github/workflows/docker-lint.yml
 
 
 
-  - name: Test-Scan
+  Test-Scan:
     uses: ./.github/workflows/tests.yml
 
   # Once all the tests are completed, Go for Build of the application 
   
-  - name: build
+  build:
     needs: [Code-Quality, Secrets-scan, Dependency-scan, Docker-scan, Test-Scan]
     uses: ./.github/workflows/docker-build-push.yml
     secrets: inherit
 
 
   # Image scan 
-  - name: trivy
+  trivy:
     needs: [build]
     uses: ./.github/workflows/image-scan.yml
     secrets: inherit
 
     # CD : Deploy to Production 
-  - deploy:
+  deploy:
     needs: [trivy]
     uses: ./.github/workflows/deploy-to-server.yml
     secrets: inherit
