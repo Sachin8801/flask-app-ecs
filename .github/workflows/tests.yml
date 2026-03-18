@@ -20,4 +20,4 @@ jobs:
               run: pip install -r requirements.txt
 
             - name: run tests
-              run: pytest app.py -v
+              run: pytest test_app.py -v
