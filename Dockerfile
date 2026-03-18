@@ -12,7 +12,7 @@ COPY . /app
 
 # Run the app.py 
 
-RUN pip install --no-cache-dir requirements.txt 
+RUN pip install --no-cache-dir -r requirements.txt 
 
 # Exposing the port 
 
